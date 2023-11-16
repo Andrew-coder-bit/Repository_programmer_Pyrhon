@@ -6,19 +6,17 @@ INPUT_FILENAME = "input.csv"
 OUTPUT_FILENAME = "output.json"
 
 def task() -> None:
-    result = []
+
     with open(INPUT_FILENAME) as csv_file:
         reader = csv.DictReader(csv_file)
-        for row in reader:
-            result.append(row)
+        result = [row for row in reader]      #использование генератора
     ...  # TODO считать содержимое csv файла
 
     json_data = json.dumps(result, indent=4)
     print(json_data)
     ...  # TODO Сериализовать в файл с отступами равными 4
 
-    # with open(OUTPUT_FILENAME, 'w') as json_file:
-    #     json.dump(result, json_file, indent=4)
+
 
 if __name__ == '__main__':
     # Нужно для проверки
